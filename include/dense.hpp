@@ -1,27 +1,62 @@
-#include <Eigen/Dense>
+#ifndef _DENSE_HPP
+#define _DENSE_HPP
+
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/io.hpp>
+#include <functional>
+#include <type_traits>
 
 namespace cnn
 {
-    template<int From_Vector, int To_Vector, typename Int_Type = long int>
-    class Dense{
+    
+    template<typename INT_TYPE>
+    class Dense
+    {
         private:
-            using type = Int_Type;
-            Eigen::Matrix<type, From_Vector, To_Vector> weight_matrix;
-            Eigen::Matrix<type, From_Vector, To_Vector> bias_matrix;
+            template <typename Fn>
+            concept Initializer = std::is_callable_v<Fn> 
+                                    && std::same_as_v<INT_TYPE, std::result_of_t<Fn(void)>>;
+
+            using namespace boost::numeric;
+
+            ublas::matrix<INT_TYPE> weight_matrix;
+            ublas::vector<INT_TYPE> bias_vector;
+
+            double dropout;
         
         public:
             
-            Dense() : weight_matrix{}, bias_matrix{};
+            constexpr Dense(std::size_t from, std::size_t to, double dout = 0.2f) :
+            weight_matrix{from, to},
+            bias_vector{to},
+            dropout{dout} {}
 
-            Dense();
-            
+            template <Initializer Fn>
+            constexpr Dense (std::size_t from, std::size_t to, Fn w_initializer, Fn b_initializer, double dropout = 0.2f)
+                : Dense{from, to, dropout}
+                {
+                    // #pragma omp parallel
+                    for (auto i = weight_matrix.begin1(); i <= weight_matrix.end1(); ++i)
+                    {
+                        for (auto j = weight_matrix.begin2(); j <= weight_matrix.end2(); ++j)
+                        {
+                            weight_matrix(i, j) = w_initializer();
+                        }
+
+                        bias_vector[i] = b_initializer();
+                    }
+                }
+
+
             ~Dense() = default;
 
             Dense(const Dense&) = delete;
             Dense(Dense&&) = delete;
 
-            void apply(const Eigen::Matrix<type, From_Vector, 1>& in_vector, Eigen::Matrix<type, To_Vector, 1>&) const;
+            ublas::vector<INT_TYPE>&& apply(const ublas::vector<INT_TYPE>& in_vector) const;
 
     };
-
 }
+
+
+#endif 
