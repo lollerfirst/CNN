@@ -54,12 +54,13 @@ namespace cnn
              * @brief Constructs a Dense layer given dimensions, initializer lambdas and dropout rate
              *  
              * @tparam Fn deducted type of the callable passed in as an initializer
-             * 
+             *  
              * @param from dimension of the incoming vector
              * @param to dimension of the outgoing vector
              * @param dropout dropout rate
              */
-            template <Initializer Fn>
+            template <typename Fn>
+            requires Initializer<Fn, NUM_TYPE>
             constexpr Dense (std::size_t from, std::size_t to, Fn w_initializer, Fn b_initializer, double dropout = 0.2f)
                 : Dense{from, to, dropout}
                 {

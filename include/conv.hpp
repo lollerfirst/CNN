@@ -2,19 +2,31 @@
 #define _CONV_HPP
 
 #include <boost/numeric/ublas/tensor.hpp>
+#include <constraints.hpp>
+#include <type_traits>
 
 namespace cnn
 {
-    template <typename NUM_TYPE>
+    
+
+    template <Numeric NUM_TYPE>
     class Conv
     {
         private:
             using namespace boost::numeric;
 
             ublas::tensor<NUM_TYPE> kernel_tensor;
+            int stride;
         
         public:
-            constexpr 
+            template <typename Fn>
+            requires Initializer<Fn, NUM_TYPE>
+            constexpr Conv(const std::initializer_list<std::size_t>& init_list, Fn initializer_lambda) : kernel_tensor{init_list} 
+            {
+                //... initialize the Tensor with values taken from initializer_lambda
+            }
+
+            Conv (const Conv& c) : kernel_tensor
     };
 }
 
