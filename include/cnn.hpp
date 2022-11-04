@@ -5,6 +5,7 @@
 #include <conv.hpp>
 #include <maxpool.hpp>
 #include <array>
+#include <component.hpp>
 
 namespace cnn
 {
@@ -13,14 +14,15 @@ namespace cnn
      * @brief Convolutional Neural Network wrapper
      * 
      */
-    template <typename C, typename ... Args>
-    class Cnn
+    template <Component ... Args>
+    class CNN
     {
         private:
-            std::array<C, sizeof...(Args) + 1> pipeline;
+            std::array<Component, sizeof...(Args)> pipeline;
         
         public:
 
+            constexpr CNN(const Component& ... list) : pipeline{list} {}
             
     };
 }

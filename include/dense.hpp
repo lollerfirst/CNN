@@ -6,6 +6,7 @@
 #include <functional>
 #include <type_traits>
 #include <constraints.hpp>
+#include <component.hpp>
 
 namespace cnn
 {
@@ -17,7 +18,7 @@ namespace cnn
      * @tparam NUM_TYPE type for weights matrix and bias vector
      */
     template<Numeric NUM_TYPE>
-    class Dense
+    class Dense : virtual Component<NUM_TYPE>
     {
         private:
 

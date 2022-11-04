@@ -10,7 +10,7 @@ namespace cnn
     
 
     template <Numeric NUM_TYPE>
-    class Conv
+    class Conv : virtual Component<NUM_TYPE>
     {
         private:
             using namespace boost::numeric;
@@ -26,7 +26,10 @@ namespace cnn
                 //... initialize the Tensor with values taken from initializer_lambda
             }
 
-            Conv (const Conv& c) : kernel_tensor
+            Conv (const Conv& c) : kernel_tensor {}
+
+            
+
     };
 }
 
