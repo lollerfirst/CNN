@@ -18,7 +18,7 @@ namespace cnn
      * @tparam NUM_TYPE type for weights matrix and bias vector
      */
     template<Numeric NUM_TYPE>
-    class Dense : Component<NUM_TYPE>
+    class Dense : virtual Component<NUM_TYPE>
     {
         private:
 
@@ -80,7 +80,7 @@ namespace cnn
              * @param in_vector incoming From-dimensional vector
              * @return ublas::vector<NUM_TYPE>&& transformed output (network representation)
              */
-            ublas::vector<NUM_TYPE> apply(const ublas::vector<NUM_TYPE>& in_vector) const;
+            ublas::vector<NUM_TYPE> apply(const ublas::vector<NUM_TYPE>& in_vector) const override;
             
 
             /**
@@ -89,7 +89,7 @@ namespace cnn
              * @param gradient_vector vector containing the error from which calculate the error for each weight
              * @return ublas::vector<NUM_TYPE> Returns computed gradients
              */
-            ublas::vector<NUM_TYPE> update(const ublas::vector<NUM_TYPE>& gradient_vector); 
+            ublas::vector<NUM_TYPE> update(const ublas::vector<NUM_TYPE>& gradient_vector) override;
     };
 }
 
