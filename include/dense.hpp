@@ -18,18 +18,9 @@ namespace cnn
      * @tparam NUM_TYPE type for weights matrix and bias vector
      */
     template<Numeric NUM_TYPE>
-    class Dense : virtual Component<NUM_TYPE>
+    class Dense : Component<NUM_TYPE>
     {
         private:
-
-            /**
-             * @brief Initializer lambda must be a callable and must return a NUM_TYPE
-             * 
-             * @tparam Fn represents the deduced type of the passed in callable
-             */
-            template <typename Fn>
-            concept Initializer = std::is_callable_v<Fn> 
-                                    && std::same_as_v<NUM_TYPE, std::result_of_t<Fn(void)>>;
 
             using namespace boost::numeric;
 

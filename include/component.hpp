@@ -6,15 +6,31 @@
 
 namespace cnn
 {
+    enum comp_types
+    {
+        DEFAULT,
+        DENSE,
+        ACTIVATION,
+        CONV,
+        MAXPOOL,
+        LINEARIZE
+    };
+
+    using namespace boost::numeric;
+
     template <Numeric NUM_TYPE>
     class Component
     {
-        private: 
-            using namespace boost::numeric;
-
         public:
+            enum comp_types comptype;
+
             virtual ublas::vector<NUM_TYPE> apply(const ublas::vector<NUM_TYPE>& in_vector) const = 0;
-            virtual ublas::vector<NUM_TYPE> update(const ublas::vector<NUM_TYPE>& out_vector) const = 0;
+            virtual ublas::tensor<NUM_TYPE> apply(const ublas::tensor<NUM_TYPE>& out_tensor) const = 0;
+
+            virtual ublas::vector<NUM_TYPE> update(const ublas::vector<NUM_TYPE>& gradient_vector) = 0;
+            virtual ublas::tensor<NUM_TYPE> update(const ublas::tensor<NUM_TYPE>& gradient_tensor) = 0;
+
+            virtual ~Component() = 0;
     };
 }
 

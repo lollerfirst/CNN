@@ -14,7 +14,7 @@ namespace cnn
      * @brief Convolutional Neural Network wrapper
      * 
      */
-    template <Component ... Args>
+    template <typename ... Args>
     class CNN
     {
         private:
@@ -22,7 +22,7 @@ namespace cnn
         
         public:
 
-            constexpr CNN(const Component& ... list) : pipeline{list} {}
+            constexpr CNN(std::initializer_list<Component> list) : pipeline{list} {}
             
     };
 }

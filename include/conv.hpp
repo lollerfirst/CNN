@@ -26,8 +26,17 @@ namespace cnn
                 //... initialize the Tensor with values taken from initializer_lambda
             }
 
-            Conv (const Conv& c) : kernel_tensor {}
+            Conv (const Conv& c) : kernel_tensor {c.kernel_tensor} : comptype {c.comptype} {}
+            Conv (Conv&& c) : kernel_tensor {std::move(c.kernel_tensor)} : comptype {c.comptype} {}
 
+            ~Conv ()
+            {
+                ~kernel_tensor();
+            }
+
+
+            ublas::tensor<NUM_TYPE> apply(const ublas::tensor<NUM_TYPE>& out_tensor) const;
+            ublas::tensor<NUM_TYPE> update(const ublas::tensor<NUM_TYPE>& gradient_tensor) const;
             
 
     };
