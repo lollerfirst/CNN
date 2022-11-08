@@ -7,6 +7,7 @@
 #include <type_traits>
 #include <constraints.hpp>
 #include <component.hpp>
+#include <initializers.hpp>
 
 namespace cnn
 {
@@ -53,7 +54,7 @@ namespace cnn
              */
             template <typename Fn>
             requires Initializer<Fn, NUM_TYPE>
-            constexpr Dense (std::size_t from, std::size_t to, Fn w_initializer, Fn b_initializer, double dropout = 0.2f)
+            constexpr Dense (std::size_t from, std::size_t to, Fn w_initializer, Fn b_initializer = default_initializer, double dropout = 0.2f)
                 : Dense{from, to, dropout}
                 {
                     // #pragma omp parallel

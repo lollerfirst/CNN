@@ -1,11 +1,10 @@
 #ifndef _CNN_HPP
 #define _CNN_HPP
 
-#include <dense.hpp>
-#include <conv.hpp>
-#include <maxpool.hpp>
+
 #include <array>
 #include <component.hpp>
+#include <constraints.hpp>
 
 namespace cnn
 {
@@ -14,16 +13,28 @@ namespace cnn
      * @brief Convolutional Neural Network wrapper
      * 
      */
-    template <typename ... Args>
+    template <Component*... Args>
     class CNN
     {
         private:
-            std::array<Component, sizeof...(Args)> pipeline;
+            std::array<Component*, sizeof...(Args)> pipeline;
+            
         
         public:
 
-            constexpr CNN(std::initializer_list<Component> list) : pipeline{list} {}
+            constexpr CNN(Args... list) : pipeline{list} {}
             
+            template <Numeric NUM_TYPE>
+            int train(const ublas::tensor<NUM_TYPE>& train_set, std::size_t batch_size) noexcept;
+
+            template <Numeric NUM_TYPE>
+            int train(const ublas::matrix<NUM_TYPE>& train_set, std::size_t batch_size) noexcept;
+
+            template <Numeric NUM_TYPE>
+            int test(const ublas::tensor<NUM_TYPE>& test_set, std::size_t batch_size) noexcept;
+
+            template <Numeric NUM_TYPE>
+            int test(const ublas::matrix<NUM_TYPE>& test_set, std::size_t batch_size) noexcept;
     };
 }
 
