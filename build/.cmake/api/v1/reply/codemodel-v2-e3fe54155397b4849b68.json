@@ -6,6 +6,10 @@
 			[
 				{
 					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
 					"projectIndex" : 0,
 					"source" : "."
 				}
