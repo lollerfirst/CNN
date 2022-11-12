@@ -42,7 +42,7 @@ namespace cnn
              */
             template <typename Fn>
             requires Initializer<Fn, NUM_TYPE>
-            constexpr Dense (std::size_t from, std::size_t to, Fn w_initializer, Fn b_initializer = default_initializer, double dropout = 0.2f)
+            constexpr Dense (std::size_t from, std::size_t to, Fn w_initializer = default_initializer, Fn b_initializer = default_initializer, double dropout = 0.2f)
                 : 
                 comptype{DENSE},
                 weight_matrix{from, to},
