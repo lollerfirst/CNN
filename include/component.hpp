@@ -6,7 +6,7 @@
 
 namespace cnn
 {
-    enum comp_types
+    typedef enum 
     {
         DEFAULT,
         DENSE,
@@ -14,7 +14,7 @@ namespace cnn
         CONV,
         MAXPOOL,
         FLATTEN
-    };
+    } comp_types;
 
     using namespace boost::numeric;
 
@@ -22,7 +22,9 @@ namespace cnn
     class Component
     {
         public:
-            enum comp_types comptype;
+            comp_types comptype;
+
+            constexpr Component() : comptype{DEFAULT} {}
 
             virtual ublas::vector<NUM_TYPE> apply(const ublas::vector<NUM_TYPE>& in_vector) const = 0;
             virtual ublas::tensor<NUM_TYPE> apply(const ublas::tensor<NUM_TYPE>& in_tensor) const = 0;

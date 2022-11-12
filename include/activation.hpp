@@ -9,6 +9,11 @@ namespace cnn
 
     using namespace boost::numeric;
 
+    /**
+     * @brief activation type for conditional compilation
+     *
+     * Links to different implemented methods (relu or softmax)
+     */
     typedef enum
     {
         RELU,
@@ -16,12 +21,19 @@ namespace cnn
 
     } ActivType;
 
-    template <ActivType A_TYPE, Numeric NUM_TYPE>
+    /**
+     * @brief Wrapper for the activation functions
+     * Acts as a component of the cnn that can be applied and updated getting a gradient from it
+     * 
+     * @tparam NUM_TYPE
+     * @tparam A_TYPE Type of the activation
+     */
+    template <Numeric NUM_TYPE, ActivType A_TYPE>
     class Activation : virtual Component<NUM_TYPE>
     {
             
         public:
-            constexpr Activation(){}
+            constexpr Activation() : comptype{ACTIVATION} {}
             ~Activation(){}
 
             ublas::tensor<NUM_TYPE> apply(const ublas::tensor<NUM_TYPE>& in_tensor) const override;

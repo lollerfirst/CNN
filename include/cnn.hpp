@@ -23,6 +23,11 @@ namespace cnn
         public:
 
             constexpr CNN(Args... list) : pipeline{list} {}
+
+            ~CNN()
+            {
+                ~pipeline();
+            }
             
             template <Numeric NUM_TYPE>
             int train(const ublas::tensor<NUM_TYPE>& train_set, std::size_t batch_size) noexcept;

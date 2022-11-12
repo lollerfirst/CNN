@@ -8,6 +8,7 @@
 
 namespace cnn
 {
+    using namespace boost::numeric;
 
     /**
      * @brief Default filters for a 3x3x3 convolution
@@ -32,8 +33,6 @@ namespace cnn
     class Conv : virtual Component<NUM_TYPE>
     {
         private:
-            using namespace boost::numeric;
-
             ublas::tensor<NUM_TYPE> kernel_tensor;
             short stride;
         
@@ -77,7 +76,7 @@ namespace cnn
 
 
             ublas::tensor<NUM_TYPE> apply(const ublas::tensor<NUM_TYPE>& out_tensor) const override;
-            ublas::tensor<NUM_TYPE> update(const ublas::tensor<NUM_TYPE>& gradient_tensor) const override;
+            ublas::tensor<NUM_TYPE> update(const ublas::tensor<NUM_TYPE>& gradient_tensor) override;
             
 
     };

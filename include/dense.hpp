@@ -32,18 +32,6 @@ namespace cnn
         public:
             
             /**
-             * @brief Constructs a Dense layer given the dimensions and dropout rate
-             * 
-             * @param from dimension of the incoming vector
-             * @param to dimension of the outgoing vector
-             * @param dout dropout rate
-             */
-            constexpr Dense(std::size_t from, std::size_t to, double dout = 0.2f) :
-            weight_matrix{from, to},
-            bias_vector{to},
-            dropout{dout} {}
-
-            /**
              * @brief Constructs a Dense layer given dimensions, initializer lambdas and dropout rate
              *  
              * @tparam Fn deducted type of the callable passed in as an initializer
@@ -55,9 +43,13 @@ namespace cnn
             template <typename Fn>
             requires Initializer<Fn, NUM_TYPE>
             constexpr Dense (std::size_t from, std::size_t to, Fn w_initializer, Fn b_initializer = default_initializer, double dropout = 0.2f)
-                : Dense{from, to, dropout}
+                : 
+                comptype{DENSE},
+                weight_matrix{from, to},
+                bias_vector{to},
+                dropout{dout} 
                 {
-                    // #pragma omp parallel
+                    
                     for (auto i = weight_matrix.begin1(); i <= weight_matrix.end1(); ++i)
                     {
                         for (auto j = weight_matrix.begin2(); j <= weight_matrix.end2(); ++j)

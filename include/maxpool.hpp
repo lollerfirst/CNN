@@ -22,6 +22,11 @@ namespace cnn
             constexpr MaxPool(std::size_t dim1 = 3UL, std::size_t dim2 = 3UL, short strd = 3) :
             comptype{MAXPOOL}, dimensions{dim1, dim2}, stride{strd} {}
 
+            ~MaxPool()
+            {
+                ~dimensions();
+            }
+
             ublas::tensor<NUM_TYPE> apply(const ublas::tensor<NUM_TYPE>& in_tensor) const override;
 
             ublas::tensor<NUM_TYPE> update(const ublas::tensor<NUM_TYPE>& gradient_tensor) const override;
