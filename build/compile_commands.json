@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/lollerfirst/dev/CNN/build/src",
+  "command": "/usr/bin/g++-10  -I/home/lollerfirst/dev/CNN/./include -I/home/lollerfirst/dev/CNN/./res -g -fPIC -Wall -Wextra -pedantic -Werror -std=gnu++2a -o CMakeFiles/cnn.dir/activation.cpp.o -c /home/lollerfirst/dev/CNN/src/activation.cpp",
+  "file": "/home/lollerfirst/dev/CNN/src/activation.cpp"
+}
+]

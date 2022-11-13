@@ -1,2 +1,10 @@
+/home/lollerfirst/dev/CNN/build/CMakeFiles/test.dir
 /home/lollerfirst/dev/CNN/build/CMakeFiles/edit_cache.dir
 /home/lollerfirst/dev/CNN/build/CMakeFiles/rebuild_cache.dir
+/home/lollerfirst/dev/CNN/build/tests/CMakeFiles/test.dir
+/home/lollerfirst/dev/CNN/build/tests/CMakeFiles/edit_cache.dir
+/home/lollerfirst/dev/CNN/build/tests/CMakeFiles/rebuild_cache.dir
+/home/lollerfirst/dev/CNN/build/src/CMakeFiles/cnn.dir
+/home/lollerfirst/dev/CNN/build/src/CMakeFiles/test.dir
+/home/lollerfirst/dev/CNN/build/src/CMakeFiles/edit_cache.dir
+/home/lollerfirst/dev/CNN/build/src/CMakeFiles/rebuild_cache.dir

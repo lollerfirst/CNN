@@ -75,8 +75,8 @@ namespace cnn
             }
 
 
-            ublas::tensor<NUM_TYPE> apply(const ublas::tensor<NUM_TYPE>& out_tensor) const override;
-            ublas::tensor<NUM_TYPE> update(const ublas::tensor<NUM_TYPE>& gradient_tensor) override;
+            ublas::tensor<NUM_TYPE>& apply(ublas::tensor<NUM_TYPE>& in_tensor) const noexcept;
+            ublas::tensor<NUM_TYPE>& update(ublas::tensor<NUM_TYPE>& gradient_tensor) noexcept;
             
 
     };

@@ -63,16 +63,75 @@ CMAKE_BINARY_DIR = /home/lollerfirst/dev/CNN/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all:
+all: tests/all
+all: src/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: tests/preinstall
+preinstall: src/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean:
+clean: tests/clean
+clean: src/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src
+
+# Recursive "all" directory target.
+src/all: src/CMakeFiles/cnn.dir/all
+.PHONY : src/all
+
+# Recursive "preinstall" directory target.
+src/preinstall:
+.PHONY : src/preinstall
+
+# Recursive "clean" directory target.
+src/clean: src/CMakeFiles/cnn.dir/clean
+.PHONY : src/clean
+
+#=============================================================================
+# Directory level rules for directory tests
+
+# Recursive "all" directory target.
+tests/all:
+.PHONY : tests/all
+
+# Recursive "preinstall" directory target.
+tests/preinstall:
+.PHONY : tests/preinstall
+
+# Recursive "clean" directory target.
+tests/clean:
+.PHONY : tests/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/cnn.dir
+
+# All Build rule for target.
+src/CMakeFiles/cnn.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lollerfirst/dev/CNN/build/CMakeFiles --progress-num=1,2 "Built target cnn"
+.PHONY : src/CMakeFiles/cnn.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/cnn.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lollerfirst/dev/CNN/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/cnn.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lollerfirst/dev/CNN/build/CMakeFiles 0
+.PHONY : src/CMakeFiles/cnn.dir/rule
+
+# Convenience name for target.
+cnn: src/CMakeFiles/cnn.dir/rule
+.PHONY : cnn
+
+# clean rule for target.
+src/CMakeFiles/cnn.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/clean
+.PHONY : src/CMakeFiles/cnn.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
