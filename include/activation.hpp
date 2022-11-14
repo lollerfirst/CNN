@@ -29,7 +29,7 @@ namespace cnn
      * @tparam A_TYPE Type of the activation
      */
     template <Numeric NUM_TYPE, ActivType A_TYPE>
-    class Activation : virtual Component<NUM_TYPE>
+    class Activation : Component
     {
             
         public:

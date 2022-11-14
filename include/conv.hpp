@@ -30,7 +30,7 @@ namespace cnn
     };
 
     template <Numeric NUM_TYPE>
-    class Conv : virtual Component<NUM_TYPE>
+    class Conv : Component
     {
         private:
             ublas::tensor<NUM_TYPE> kernel_tensor;
