@@ -50,9 +50,9 @@ namespace cnn
                 dropout{dout} 
                 {
                     
-                    for (auto i = weight_matrix.begin1(); i <= weight_matrix.end1(); ++i)
+                    for (auto i = weight_matrix.begin1(); i < weight_matrix.end1(); ++i)
                     {
-                        for (auto j = weight_matrix.begin2(); j <= weight_matrix.end2(); ++j)
+                        for (auto j = weight_matrix.begin2(); j < weight_matrix.end2(); ++j)
                         {
                             weight_matrix(i, j) = w_initializer();
                         }
