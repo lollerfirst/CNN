@@ -7,6 +7,9 @@
 #define APPLY_SIGNATURE(DAT_TYPE, NUM_TYPE, ACT_TYPE) \
 auto& cnn::Activation<NUM_TYPE, ACT_TYPE>::apply(DAT_TYPE& in_tensor) noexcept const -> DAT_TYPE
 
+#define UPDATE_SIGNATURE(DAT_TYPE, NUM_TYPE, ACT_TYPE) \
+auto& cnn::Activation<NUM_TYPE, ACT_TYPE>::update(DAT_TYPE& in_tensor) noexcept const -> DAT_TYPE
+
 using namespace boost::numeric;
 
 template <typename DAT_TYPE, Numeric NUM_TYPE, ActivType ACT_TYPE>

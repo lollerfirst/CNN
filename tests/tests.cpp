@@ -70,15 +70,6 @@ TEST_F(ActivationTest, UpdateTest){
     
 }
 
-TEST(ComponentTest, TestCompType)
-{
-    
-}
-
-TEST(CnnTest, TestConctructor){
-
-}
-
 int main(int argc, char** argv)
 {
     testing::InitGoogleTest(argc, argv);
