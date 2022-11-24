@@ -127,17 +127,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cnn
+# Target rules for targets named libcnn
 
 # Build rule for target.
-cnn: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cnn
-.PHONY : cnn
+libcnn: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libcnn
+.PHONY : libcnn
 
 # fast build rule for target.
-cnn/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/build
-.PHONY : cnn/fast
+libcnn/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/libcnn.dir/build.make src/CMakeFiles/libcnn.dir/build
+.PHONY : libcnn/fast
+
+#=============================================================================
+# Target rules for targets named tests
+
+# Build rule for target.
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/build
+.PHONY : tests/fast
 
 # Help Target
 help:
@@ -148,7 +161,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... cnn"
+	@echo "... libcnn"
+	@echo "... tests"
 .PHONY : help
 
 

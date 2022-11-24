@@ -1,7 +1,12 @@
 [
 {
   "directory": "/home/lollerfirst/dev/CNN/build/src",
-  "command": "/usr/bin/g++-10  -I/home/lollerfirst/dev/CNN/./include -I/home/lollerfirst/dev/CNN/./res -g -fPIC -Wall -Wextra -pedantic -Werror -std=gnu++2a -o CMakeFiles/cnn.dir/activation.cpp.o -c /home/lollerfirst/dev/CNN/src/activation.cpp",
+  "command": "/usr/bin/g++-10  -I/home/lollerfirst/dev/CNN/src/../include -I/home/lollerfirst/dev/CNN/src/../res -g -fPIC -Wall -Wextra -pedantic -Werror -fopenmp -std=gnu++2a -o CMakeFiles/libcnn.dir/activation.cpp.o -c /home/lollerfirst/dev/CNN/src/activation.cpp",
   "file": "/home/lollerfirst/dev/CNN/src/activation.cpp"
+},
+{
+  "directory": "/home/lollerfirst/dev/CNN/build/tests",
+  "command": "/usr/bin/g++-10  -I/home/lollerfirst/dev/CNN/tests/../include -I/home/lollerfirst/dev/CNN/tests/../res -I/home/lollerfirst/dev/CNN/src/../include -I/home/lollerfirst/dev/CNN/src/../res -g -fPIE -Wall -Wextra -pedantic -Werror -fopenmp -std=gnu++2a -o CMakeFiles/tests.dir/tests.cpp.o -c /home/lollerfirst/dev/CNN/tests/tests.cpp",
+  "file": "/home/lollerfirst/dev/CNN/tests/tests.cpp"
 }
 ]

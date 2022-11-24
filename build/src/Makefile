@@ -127,25 +127,25 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/cnn.dir/rule:
-	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/cnn.dir/rule
-.PHONY : src/CMakeFiles/cnn.dir/rule
+src/CMakeFiles/libcnn.dir/rule:
+	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/libcnn.dir/rule
+.PHONY : src/CMakeFiles/libcnn.dir/rule
 
 # Convenience name for target.
-cnn: src/CMakeFiles/cnn.dir/rule
-.PHONY : cnn
+libcnn: src/CMakeFiles/libcnn.dir/rule
+.PHONY : libcnn
 
 # fast build rule for target.
-cnn/fast:
-	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/build
-.PHONY : cnn/fast
+libcnn/fast:
+	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/libcnn.dir/build.make src/CMakeFiles/libcnn.dir/build
+.PHONY : libcnn/fast
 
 activation.o: activation.cpp.o
 .PHONY : activation.o
 
 # target to build an object file
 activation.cpp.o:
-	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/activation.cpp.o
+	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/libcnn.dir/build.make src/CMakeFiles/libcnn.dir/activation.cpp.o
 .PHONY : activation.cpp.o
 
 activation.i: activation.cpp.i
@@ -153,7 +153,7 @@ activation.i: activation.cpp.i
 
 # target to preprocess a source file
 activation.cpp.i:
-	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/activation.cpp.i
+	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/libcnn.dir/build.make src/CMakeFiles/libcnn.dir/activation.cpp.i
 .PHONY : activation.cpp.i
 
 activation.s: activation.cpp.s
@@ -161,7 +161,7 @@ activation.s: activation.cpp.s
 
 # target to generate assembly for a file
 activation.cpp.s:
-	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/cnn.dir/build.make src/CMakeFiles/cnn.dir/activation.cpp.s
+	cd /home/lollerfirst/dev/CNN/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/libcnn.dir/build.make src/CMakeFiles/libcnn.dir/activation.cpp.s
 .PHONY : activation.cpp.s
 
 # Help Target
@@ -173,7 +173,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... cnn"
+	@echo "... libcnn"
 	@echo "... activation.o"
 	@echo "... activation.i"
 	@echo "... activation.s"

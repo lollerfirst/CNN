@@ -1,0 +1,1 @@
+/usr/bin/g++-10 -g CMakeFiles/tests.dir/tests.cpp.o -o tests  ../src/liblibcnn.a -llibgtest-dev 

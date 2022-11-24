@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblibcnn.a CMakeFiles/libcnn.dir/activation.cpp.o
+/usr/bin/ranlib liblibcnn.a
